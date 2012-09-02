@@ -9,7 +9,10 @@
 		color: #333;
 	}
 	h1 {
-		font-size: 20px;
+		font-size: 22px;
+	}
+	a {
+		color: #999;
 	}
 	form {
 		padding: 20px; 
@@ -20,7 +23,7 @@
 		padding: 0.1em;
 	}
 	#footer {
-		padding-top: 20px;
+		padding: 10px;
 		font-size: 11px;
 	}
 	</style>
@@ -78,10 +81,10 @@
 				if(a[i].href) {
 					var href = a[i].href;
 					if(href.indexOf('#') > 0) { //Check if anchor
-						a[i].href = '/' + location.search + '#' + a[i].hash.substring(1); //Support empty anchor
+						a[i].href = location.origin + location.pathname + location.search + '#' + a[i].hash.substring(1); //Support empty anchor
 					}
 					else if(href.indexOf('//raw.github.com') > 0) { //Check if from raw.github.com
-						a[i].href = '/?' + href;
+						a[i].href = location.origin + location.pathname + '?' + href;
 					}
 				}
 			}
