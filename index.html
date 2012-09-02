@@ -19,24 +19,29 @@
 		background-color: #FAFFA6;
 		padding: 0.1em;
 	}
+	#footer {
+		padding-top: 20px;
+		font-size: 11px;
+	}
 	</style>
 </head>
 <body>
 	<form id="previewform" action="">
 		<h1>GitHub HTML Preview</h1>
 		<p>Enter HTML file to preview: <input id="file" value="" placeholder="https://github.com/twitter/bootstrap/blob/master/docs/index.html" size="70"> <input type="submit" value="&raquo;"></p>
-		<p>or add in front of the URL: <strong>https://htmlpreview.github.com/?</strong>https://github.com/twitter/bootstrap/blob/master/docs/index.html</p>
+		<p>or add in front of the URL: <strong>http://htmlpreview.github.com/?</strong>https://github.com/twitter/bootstrap/blob/master/docs/index.html</p>
+		<p id="footer"><a href="https://github.com/htmlpreview/htmlpreview.github.com">Contribute on GitHub</a></p>
 	</form>
 	<script>
 	var Preview = {
 
 		content: '',
 
+		previewform: document.getElementById('previewform'),
+
 		file: function() {
 			return location.search.substring(1); //Get everything after ?
 		},
-
-		previewform: document.getElementById('previewform'),
 
 		raw: function() {
 			return this.file().replace(/\/\/github\.com/,'//raw.github.com').replace(/\/blob\//,'/'); //Get URL of raw file
@@ -51,7 +56,7 @@
 			for(var i in script) {
 				if(script[i].src) {
 					var src = script[i].src;
-					if(src.indexOf('//raw.github.com/') > 0) { //Check if from raw.github.com
+					if(src.indexOf('//raw.github.com') > 0) { //Check if from raw.github.com
 						this.send(src, 'loadJS');
 						script[i].parentNode.removeChild(script[i]);
 					}
@@ -62,7 +67,7 @@
 				if(link[i].rel == 'stylesheet'
 				&& link[i].href) {
 					var href = link[i].href;
-					if(href.indexOf('//raw.github.com/') > 0) { //Check if from raw.github.com
+					if(href.indexOf('//raw.github.com') > 0) { //Check if from raw.github.com
 						this.send(href, 'loadCSS');
 						link[i].parentNode.removeChild(link[i]);
 					}
@@ -73,10 +78,10 @@
 				if(a[i].href) {
 					var href = a[i].href;
 					if(href.indexOf('#') > 0) { //Check if anchor
-						a[i].href = location.origin + location.pathname + location.search + '#' + a[i].hash.substring(1); //Support empty anchor
+						a[i].href = '/' + location.search + '#' + a[i].hash.substring(1); //Support empty anchor
 					}
-					else if(href.indexOf('//raw.github.com/') > 0) { //Check if from raw.github.com
-						a[i].href = location.origin + location.pathname + '?' + href;
+					else if(href.indexOf('//raw.github.com') > 0) { //Check if from raw.github.com
+						a[i].href = '/?' + href;
 					}
 				}
 			}
@@ -130,14 +135,11 @@
 		},
 
 		submitform: function() {
-				location.search = '?' + document.getElementById('file').value;
+				location.href = '/?' + document.getElementById('file').value;
 				return false;
 		},
 
 		init: function() {
-			try {
-				document.domain = 'github.com'; //Set the same domain policy
-			} catch (e) {}
 			this.previewform.onsubmit = this.submitform;
 			if(this.file()) {
 				this.previewform.innerHTML = 'Loading...';
