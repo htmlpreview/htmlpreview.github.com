@@ -56,8 +56,9 @@ var HTMLPreview = {
 		&& data.query
 		&& data.query.results
 		&& data.query.results.resources
-		&& data.query.results.resources.content) {
-			this.content = data.query.results.resources.content.replace(/<head>/i,'<head><base href="'+this.folder()+'">').replace(/<\/body>/i,'<script src="http://' + location.hostname + '/htmlpreview.js"></script><script>HTMLPreview.replaceScripts();</script></body>'); //Add <base> just after <head> and inject <script> just before </body>
+		&& data.query.results.resources.content
+		&& data.query.results.resources.status == 200) {
+			this.content = data.query.results.resources.content.replace(/<head>/i,'<head><base href="'+this.folder()+'">').replace(/<\/body>/i,'<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceScripts();</script></body>'); //Add <base> just after <head> and inject <script> just before </body>
 			setTimeout(function() {
 				document.open();
 				document.write(HTMLPreview.content);
@@ -78,7 +79,8 @@ var HTMLPreview = {
 		&& data.query
 		&& data.query.results
 		&& data.query.results.resources
-		&& data.query.results.resources.content) {
+		&& data.query.results.resources.content
+		&& data.query.results.resources.status == 200) {
 			document.write('<style>'+data.query.results.resources.content+'</style>');
 		}		
 	},
@@ -88,7 +90,8 @@ var HTMLPreview = {
 		&& data.query
 		&& data.query.results
 		&& data.query.results.resources
-		&& data.query.results.resources.content) {
+		&& data.query.results.resources.content
+		&& data.query.results.resources.status == 200) {
 			document.write('<scr'+'ipt>'+data.query.results.resources.content+'</scr'+'ipt>');
 		}		
 	},
