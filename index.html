@@ -9,10 +9,10 @@
 		color: #333;
 	}
 	h1 {
-		font-size: 22px;
+		font-size: 24px;
 	}
 	a {
-		color: #999;
+		color: #666;
 	}
 	form {
 		padding: 20px; 
@@ -23,134 +23,20 @@
 		padding: 0.1em;
 	}
 	#footer {
-		padding: 10px;
+		margin: 20px 0;
 		font-size: 10px;
+		color: #666;
 	}
 	</style>
 </head>
 <body>
 	<form id="previewform" action="">
 		<h1>GitHub HTML Preview</h1>
-		<p>Enter HTML file to preview: <input id="file" value="" placeholder="https://github.com/twitter/bootstrap/blob/master/docs/index.html" size="70"> <input type="submit" value="&raquo;"></p>
-		<p>or add in front of the URL: <strong>http://htmlpreview.github.com/?</strong>https://github.com/twitter/bootstrap/blob/master/docs/index.html</p>
-		<p id="footer"><a href="https://github.com/htmlpreview/htmlpreview.github.com">Contribute on GitHub</a></p>
+		<p>Enter the HTML file to preview: <input type="url" id="file" value="" placeholder="e.g. https://github.com/user/repo/blob/master/index.html" size="70"> <input type="submit" value="&raquo;"></p>
+		<p>or prepend to the URL: <strong>http://htmlpreview.github.com/?</strong>https://github.com/twitter/bootstrap/blob/master/docs/index.html</p>
+		<p id="footer">Developed by <a href="https://github.com/niutech">niu tech</a> | <a href="https://github.com/htmlpreview/htmlpreview.github.com">Contribute on GitHub</a></p>
 	</form>
-	<script>
-	var Preview = {
-
-		content: '',
-
-		previewform: document.getElementById('previewform'),
-
-		file: function() {
-			return location.search.substring(1); //Get everything after ?
-		},
-
-		raw: function() {
-			return this.file().replace(/\/\/github\.com/,'//raw.github.com').replace(/\/blob\//,'/'); //Get URL of raw file
-		},
-
-		folder: function() {
-			return this.raw().replace(/[^\/]+$/g,''); //Remove file name from the end of URL
-		},
-
-		replaceScripts: function() {
-			var script = document.getElementsByTagName('script');
-			for(var i in script) {
-				if(script[i].src) {
-					var src = script[i].src;
-					if(src.indexOf('//raw.github.com') > 0) { //Check if from raw.github.com
-						this.send(src, 'loadJS');
-						script[i].parentNode.removeChild(script[i]);
-					}
-				}
-			}
-			var link = document.getElementsByTagName('link');
-			for(var i in link) {
-				if(link[i].rel == 'stylesheet'
-				&& link[i].href) {
-					var href = link[i].href;
-					if(href.indexOf('//raw.github.com') > 0) { //Check if from raw.github.com
-						this.send(href, 'loadCSS');
-						link[i].parentNode.removeChild(link[i]);
-					}
-				}
-			}
-			var a = document.getElementsByTagName('a');
-			for(var i in a) {
-				if(a[i].href) {
-					var href = a[i].href;
-					if(href.indexOf('#') > 0) { //Check if anchor
-						a[i].href = location.origin + location.pathname + location.search + '#' + a[i].hash.substring(1); //Support empty anchor
-					}
-					else if(href.indexOf('//raw.github.com') > 0) { //Check if from raw.github.com
-						a[i].href = location.origin + location.pathname + '?' + href;
-					}
-				}
-			}
-		},
-
-		loadHTML: function(data) {
-			if(data
-			&& data.query
-			&& data.query.results
-			&& data.query.results.resources
-			&& data.query.results.resources.content) {
-				this.content = data.query.results.resources.content.replace(/<head>/i,'<head><base href="'+this.folder()+'">'); //Add <base> just after <head>
-				setTimeout(function() {
-					document.open();
-					document.write(Preview.content);
-					Preview.replaceScripts();
-					document.close();
-				}, 10); //Delay updating document to get it cleared before
-			}
-			else if(data
-				 && data.error
-				 && data.error.description) {
-				this.previewform.innerHTML = data.error.description;
-			}
-			else
-				this.previewform.innerHTML = 'Error: Cannot load file '+this.raw();
-		},
-
-		loadCSS: function(data) {
-			if(data
-			&& data.query
-			&& data.query.results
-			&& data.query.results.resources
-			&& data.query.results.resources.content) {
-				document.write('<style>'+data.query.results.resources.content+'</style>');
-			}		
-		},
-
-		loadJS: function(data) {
-			if(data
-			&& data.query
-			&& data.query.results
-			&& data.query.results.resources
-			&& data.query.results.resources.content) {
-				document.write('<scr'+'ipt>'+data.query.results.resources.content+'</scr'+'ipt>');
-			}		
-		},
-
-		send: function(file, callback) {
-			document.write('<scr'+'ipt src="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20data.headers%20where%20url%3D%22'+encodeURIComponent(file)+'%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=Preview.'+callback+'"></scr'+'ipt>'); //Get content using YQL
-		},
-
-		submitform: function() {
-				location.href = '/?' + document.getElementById('file').value;
-				return false;
-		},
-
-		init: function() {
-			this.previewform.onsubmit = this.submitform;
-			if(this.file()) {
-				this.previewform.innerHTML = 'Loading...';
-				this.send(this.raw(), 'loadHTML');
-			}
-		}
-	}
-	Preview.init();
-	</script>
+	<script src="/htmlpreview.js"></script>
+	<script>HTMLPreview.init();</script>
 </body>
 </html>
