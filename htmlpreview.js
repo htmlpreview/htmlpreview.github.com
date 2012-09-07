@@ -97,7 +97,6 @@ var HTMLPreview = {
 	},
 
 	send: function(file, callback) {
-		console.log('Loading: ' + file);
 		document.write('<scr'+'ipt src="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20data.headers%20where%20url%3D%22'+encodeURIComponent(file)+'%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=HTMLPreview.'+callback+'"></scr'+'ipt>'); //Get content using YQL
 	},
 
