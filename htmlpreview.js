@@ -21,7 +21,7 @@ var HTMLPreview = {
 		link = document.getElementsByTagName('link');
 		for(i = 0; i < link.length; ++i) {
 			if(link[i].rel
-			&& link[i].rel == 'stylesheet'
+			&& link[i].rel.toLowerCase() == 'stylesheet'
 			&& link[i].href) {
 				href = link[i].href; //Get absolute URL
 				if(href.indexOf('//raw.github.com') > 0) { //Check if it's from raw.github.com
