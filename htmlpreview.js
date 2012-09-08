@@ -66,7 +66,7 @@ var HTMLPreview = {
 				document.open();
 				document.write(HTMLPreview.content);
 				document.close();
-			}, 10); //Delay updating document to have it cleared before
+			}, 50); //Delay updating document to have it cleared before
 		}
 		else if(data
 			 && data.error
@@ -84,7 +84,7 @@ var HTMLPreview = {
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			document.write('<style>'+data.query.results.resources.content+'</style>');
+			document.write('<style>'+data.query.results.resources.content.replace(/\.\.\//g,'')+'</style>'); //Don't load assets from upper folders
 		}		
 	},
 
