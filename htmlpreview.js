@@ -16,31 +16,34 @@ var HTMLPreview = {
 		return this.raw().replace(/[^\/]+$/g,''); //Remove file name from the end of URL
 	},
 
-	replaceScripts: function() {
-		var link = document.getElementsByTagName('link');
-		for(var i in link) {
+	replaceAssets: function() {
+		var link, script, a, i, href, src;
+		link = document.getElementsByTagName('link');
+		for(i = 0; i < link.length; ++i) {
 			if(link[i].rel
 			&& link[i].rel == 'stylesheet'
 			&& link[i].href) {
-				var href = link[i].href; //Get absolute URL
+				href = link[i].href; //Get absolute URL
 				if(href.indexOf('//raw.github.com') > 0) { //Check if it's from raw.github.com
 					this.send(href, 'loadCSS'); //Then load it using YQL
 				}
 			}
 		}
-		var script = document.getElementsByTagName('script');
-		for(var i in script) {
-			if(script[i].src) {
-				var src = script[i].src; //Get absolute URL
-				if(src.indexOf('//raw.github.com') > 0) { //Check if it's from raw.github.com
-					this.send(src, 'loadJS'); //Then load it using YQL
+		if(/*@cc_on!@*/0) { //Replace scripts only in IE
+			script = document.getElementsByTagName('script');
+			for(i = 0; i < script.length; ++i) {
+				if(script[i].src) {
+					src = script[i].src; //Get absolute URL
+					if(src.indexOf('//raw.github.com') > 0) { //Check if it's from raw.github.com
+						this.send(src, 'loadJS'); //Then load it using YQL
+					}
 				}
 			}
 		}
-		var a = document.getElementsByTagName('a');
-		for(var i in a) {
+		a = document.getElementsByTagName('a');
+		for(i = 0; i < a.length; ++i) {
 			if(a[i].href) {
-				var href = a[i].href; //Get absolute URL
+				href = a[i].href; //Get absolute URL
 				if(href.indexOf('#') > 0) { //Check if it's an anchor
 					a[i].href = 'http://' + location.hostname + location.pathname + location.search + '#' + a[i].hash.substring(1); //Then rewrite URL with support for empty anchor
 				}
@@ -58,7 +61,7 @@ var HTMLPreview = {
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			this.content = data.query.results.resources.content.replace(/<head>/i,'<head><base href="'+this.folder()+'">').replace(/<\/body>/i,'<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceScripts();</script></body>'); //Add <base> just after <head> and inject <script> just before </body>
+			this.content = data.query.results.resources.content.replace(/<head>/i,'<head><base href="'+this.folder()+'">').replace(/<\/body>/i,'<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>'); //Add <base> just after <head> and inject <script> just before </body>
 			setTimeout(function() {
 				document.open();
 				document.write(HTMLPreview.content);
