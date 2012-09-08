@@ -24,7 +24,7 @@ var HTMLPreview = {
 			&& link[i].rel.toLowerCase() == 'stylesheet'
 			&& link[i].href) {
 				href = link[i].href; //Get absolute URL
-				if(href.indexOf('//raw.github.com') > 0) { //Check if it's from raw.github.com
+				if(href.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
 					this.send(href, 'loadCSS'); //Then load it using YQL
 				}
 			}
@@ -34,7 +34,7 @@ var HTMLPreview = {
 			for(i = 0; i < script.length; ++i) {
 				if(script[i].src) {
 					src = script[i].src; //Get absolute URL
-					if(src.indexOf('//raw.github.com') > 0) { //Check if it's from raw.github.com
+					if(src.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
 						this.send(src, 'loadJS'); //Then load it using YQL
 					}
 				}
@@ -47,8 +47,8 @@ var HTMLPreview = {
 				if(href.indexOf('#') > 0) { //Check if it's an anchor
 					a[i].href = 'http://' + location.hostname + location.pathname + location.search + '#' + a[i].hash.substring(1); //Then rewrite URL with support for empty anchor
 				}
-				else if(href.indexOf('//raw.github.com') > 0) { //Check if it's from raw.github.com
-					a[i].href = 'http://' + location.hostname + location.pathname + '?' + href; //Then rewrite URL
+				else if(href.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
+					a[i].href = 'http://' + location.hostname + location.pathname + '?' + href; //Then rewrite URL so it can be loaded using YQL
 				}
 			}
 		}
