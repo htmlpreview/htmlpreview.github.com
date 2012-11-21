@@ -17,7 +17,7 @@ var HTMLPreview = {
 	},
 
 	replaceAssets: function() {
-		var link, script, a, i, href, src;
+		var link, script, frame, a, i, href, src;
 		link = document.getElementsByTagName('link');
 		for(i = 0; i < link.length; ++i) {
 			if(link[i].rel
@@ -37,6 +37,15 @@ var HTMLPreview = {
 					if(src.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
 						this.send(src, 'loadJS'); //Then load it using YQL
 					}
+				}
+			}
+		}
+		frame = [].slice.call(document.getElementsByTagName('iframe')).concat([].slice.call(document.getElementsByTagName('frame')));
+		for(i = 0; i < frame.length; ++i) {
+			if(frame[i].src) {
+				src = frame[i].src; //Get absolute URL
+				if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
+					frame[i].src = 'http://' + location.hostname + location.pathname + '?' + src; //Then rewrite URL so it can be loaded using YQL
 				}
 			}
 		}
