@@ -34,7 +34,7 @@ var HTMLPreview = {
 			for(i = 0; i < script.length; ++i) {
 				if(script[i].src) {
 					src = script[i].src; //Get absolute URL
-					if(src.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
+					if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
 						this.send(src, 'loadJS'); //Then load it using YQL
 					}
 				}
