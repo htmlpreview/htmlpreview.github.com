@@ -40,7 +40,7 @@ var HTMLPreview = {
 				}
 			}
 		}
-		frame = [].slice.call(document.getElementsByTagName('iframe')).concat([].slice.call(document.getElementsByTagName('frame')));
+		frame = [].concat.apply([].concat.apply([], document.getElementsByTagName("iframe")), document.getElementsByTagName("frame"));
 		for(i = 0; i < frame.length; ++i) {
 			if(frame[i].src) {
 				src = frame[i].src; //Get absolute URL
