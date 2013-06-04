@@ -29,14 +29,12 @@ var HTMLPreview = {
 				}
 			}
 		}
-		if(/*@cc_on!@*/0) { //Replace scripts only in IE
-			script = document.getElementsByTagName('script');
-			for(i = 0; i < script.length; ++i) {
-				if(script[i].src) {
-					src = script[i].src; //Get absolute URL
-					if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
-						this.send(src, 'loadJS'); //Then load it using YQL
-					}
+		script = document.getElementsByTagName('script');
+		for(i = 0; i < script.length; ++i) {
+			if(script[i].src) {
+				src = script[i].src; //Get absolute URL
+				if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
+					this.send(src, 'loadJS'); //Then load it using YQL
 				}
 			}
 		}
