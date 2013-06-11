@@ -76,8 +76,8 @@ var HTMLPreview = {
 			}, 50); //Delay updating document to have it cleared before
 		}
 		else if(data
-			 && data.error
-			 && data.error.description) {
+			&& data.error
+			&& data.error.description) {
 			this.previewform.innerHTML = data.error.description;
 		}
 		else
@@ -85,14 +85,20 @@ var HTMLPreview = {
 	},
 
 	loadCSS: function(data) {
+		var cssdir;
 		if(data
 		&& data.query
 		&& data.query.results
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			document.write('<style>'+data.query.results.resources.content.replace(/\.\.\//g,'')+'</style>'); //Don't load assets from upper folders
-		}		
+			cssdir = data.query.results.resources.url.replace(/[^\/]+\.css.*$/gi, '');
+			document.write(
+				'<style>'
+				+ data.query.results.resources.content.replace(/url\((?:'|")?([^\/][^:'"\)]+)(?:'|")?\)/gi, "url("+cssdir+"$1)")
+				+ '</style>'
+			); // if relative URL in CSS background-image property, then concatenate URL to CSS directory
+		}
 	},
 
 	loadJS: function(data) {
@@ -103,7 +109,7 @@ var HTMLPreview = {
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
 			document.write('<scr'+'ipt>'+data.query.results.resources.content+'</scr'+'ipt>');
-		}		
+		}
 	},
 
 	send: function(file, callback) {
