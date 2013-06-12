@@ -9,11 +9,11 @@ var HTMLPreview = {
 	},
 
 	raw: function() {
-		return this.file().replace(/\/\/github\.com/,'//raw.github.com').replace(/\/blob\//,'/'); //Get URL of the raw file
+		return this.file().replace(/\/\/github\.com/, '//raw.github.com').replace(/\/blob\//, '/'); //Get URL of the raw file
 	},
 
 	folder: function() {
-		return this.raw().replace(/[^\/]+$/g,''); //Remove file name from the end of URL
+		return this.raw().replace(/[^\/]+$/g, ''); //Remove file name from the end of URL
 	},
 
 	replaceAssets: function() {
@@ -68,7 +68,7 @@ var HTMLPreview = {
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			this.content = data.query.results.resources.content.replace(/<head>/i,'<head><base href="'+this.folder()+'">').replace(/<\/body>/i,'<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi,'<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
+			this.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + this.folder() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
 			setTimeout(function() {
 				document.open();
 				document.write(HTMLPreview.content);
@@ -85,19 +85,13 @@ var HTMLPreview = {
 	},
 
 	loadCSS: function(data) {
-		var cssdir;
 		if(data
 		&& data.query
 		&& data.query.results
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			cssdir = data.query.results.resources.url.replace(/[^\/]+\.css.*$/gi, '');
-			document.write(
-				'<style>'
-				+ data.query.results.resources.content.replace(/url\((?:'|")?([^\/][^:'"\)]+)(?:'|")?\)/gi, "url("+cssdir+"$1)")
-				+ '</style>'
-			); // if relative URL in CSS background-image property, then concatenate URL to CSS directory
+			document.write('<style>' + data.query.results.resources.content.replace(/url\((?:'|")?([^\/][^:'"\)]+)(?:'|")?\)/gi, 'url(' + data.query.results.resources.url.replace(/[^\/]+\.css.*$/gi, '') + '$1)') + '</style>'); //If relative URL in CSS background-image property, then concatenate URL to CSS directory
 		}
 	},
 
@@ -108,12 +102,12 @@ var HTMLPreview = {
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			document.write('<scr'+'ipt>'+data.query.results.resources.content+'</scr'+'ipt>');
+			document.write('<script>' + data.query.results.resources.content + '</script>');
 		}
 	},
 
 	send: function(file, callback) {
-		document.write('<scr'+'ipt src="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20data.headers%20where%20url%3D%22'+encodeURIComponent(file)+'%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=HTMLPreview.'+callback+'"></scr'+'ipt>'); //Get content using YQL
+		document.write('<script src="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20data.headers%20where%20url%3D%22' + encodeURIComponent(file) + '%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=HTMLPreview.' + callback + '"></script>'); //Get content using YQL
 	},
 
 	submitform: function() {
