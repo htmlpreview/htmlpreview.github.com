@@ -68,7 +68,7 @@ var HTMLPreview = {
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.folder() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
+			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.folder() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.write("<script>HTMLPreview.replaceAssets();</script>");</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
 			setTimeout(function() {
 				document.open();
 				document.write(HTMLPreview.content);
