@@ -9,11 +9,11 @@ var HTMLPreview = {
 	},
 
 	raw: function() {
-		return this.file().replace(/\/\/github\.com/, '//raw.github.com').replace(/\/blob\//, '/'); //Get URL of the raw file
+		return HTMLPreview.file().replace(/\/\/github\.com/, '//raw.github.com').replace(/\/blob\//, '/'); //Get URL of the raw file
 	},
 
 	folder: function() {
-		return this.raw().replace(/[^\/]+$/g, ''); //Remove file name from the end of URL
+		return HTMLPreview.raw().replace(/[^\/]+$/g, ''); //Remove file name from the end of URL
 	},
 
 	replaceAssets: function() {
@@ -25,7 +25,7 @@ var HTMLPreview = {
 			&& link[i].href) {
 				href = link[i].href; //Get absolute URL
 				if(href.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
-					this.send(href, 'loadCSS'); //Then load it using YQL
+					HTMLPreview.send(href, 'loadCSS'); //Then load it using YQL
 				}
 			}
 		}
@@ -34,7 +34,7 @@ var HTMLPreview = {
 			if(script[i].src) {
 				src = script[i].src; //Get absolute URL
 				if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
-					this.send(src, 'loadJS'); //Then load it using YQL
+					HTMLPreview.send(src, 'loadJS'); //Then load it using YQL
 				}
 			}
 		}
@@ -68,7 +68,7 @@ var HTMLPreview = {
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			this.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + this.folder() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
+			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.folder() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
 			setTimeout(function() {
 				document.open();
 				document.write(HTMLPreview.content);
@@ -78,10 +78,10 @@ var HTMLPreview = {
 		else if(data
 			&& data.error
 			&& data.error.description) {
-			this.previewform.innerHTML = data.error.description;
+			HTMLPreview.previewform.innerHTML = data.error.description;
 		}
 		else
-			this.previewform.innerHTML = 'Error: Cannot load file '+this.raw();
+			HTMLPreview.previewform.innerHTML = 'Error: Cannot load file ' + HTMLPreview.raw();
 	},
 
 	loadCSS: function(data) {
@@ -116,10 +116,10 @@ var HTMLPreview = {
 	},
 
 	init: function() {
-		this.previewform.onsubmit = this.submitform;
-		if(this.file()) {
-			this.previewform.innerHTML = '<p>Loading...</p>';
-			this.send(this.raw(), 'loadHTML');
+		HTMLPreview.previewform.onsubmit = HTMLPreview.submitform;
+		if(HTMLPreview.file()) {
+			HTMLPreview.previewform.innerHTML = '<p>Loading...</p>';
+			HTMLPreview.send(HTMLPreview.raw(), 'loadHTML');
 		}
 	}
 }
