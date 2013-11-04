@@ -12,10 +12,6 @@ var HTMLPreview = {
 		return HTMLPreview.file().replace(/\/\/github\.com/, '//raw.github.com').replace(/\/blob\//, '/'); //Get URL of the raw file
 	},
 
-	folder: function() {
-		return HTMLPreview.raw().replace(/[^\/]+$/g, ''); //Remove file name from the end of URL
-	},
-
 	replaceAssets: function() {
 		var link, script, frame, a, i, href, src;
 		link = document.getElementsByTagName('link');
@@ -68,7 +64,7 @@ var HTMLPreview = {
 		&& data.query.results.resources
 		&& data.query.results.resources.content
 		&& data.query.results.resources.status == 200) {
-			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.folder() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.write("<script>HTMLPreview.replaceAssets();</script>");</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
+			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.raw() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.write("<scr"+"ipt>HTMLPreview.replaceAssets();</scr"+"ipt>");</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
 			setTimeout(function() {
 				document.open();
 				document.write(HTMLPreview.content);
