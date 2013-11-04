@@ -4,10 +4,10 @@ If you try to open raw versions of any HTML, CSS or JS files in a web browser di
 
 **Now it works with BitBucket too!**
 
-To use it, just prepend this to the URL of any HTML file: **http://htmlpreview.github.com/?**
+To use it, just prepend this to the URL of any HTML file: **http://htmlpreview.github.io/?**
 
 E.g.:
-http://htmlpreview.github.com/?https://github.com/twitter/bootstrap/blob/master/docs/index.html
-http://htmlpreview.github.com/?https://github.com/documentcloud/backbone/blob/master/examples/todos/index.html
+http://htmlpreview.github.io/?https://raw.github.com/twbs/bootstrap/gh-pages/2.3.2/index.html
+http://htmlpreview.github.io/?https://github.com/documentcloud/backbone/blob/master/examples/todos/index.html
 
 GitHub HTML Preview is tested under Google Chrome, Apple Safari and Mozilla Firefox, and it should work with any websites, not only GitHub.
