@@ -13,28 +13,8 @@ var HTMLPreview = {
 	},
 
 	replaceAssets: function() {
-		var link, script, frame, a, i, href, src;
-		link = document.getElementsByTagName('link');
-		for(i = 0; i < link.length; ++i) {
-			if(link[i].rel
-			&& link[i].rel.toLowerCase() == 'stylesheet'
-			&& link[i].href) {
-				href = link[i].href; //Get absolute URL
-				if(href.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
-					HTMLPreview.send(href, 'loadCSS'); //Then load it using YQL
-				}
-			}
-		}
-		script = document.getElementsByTagName('script');
-		for(i = 0; i < script.length; ++i) {
-			if(script[i].src) {
-				src = script[i].src; //Get absolute URL
-				if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
-					HTMLPreview.send(src, 'loadJS'); //Then load it using YQL
-				}
-			}
-		}
-		frame = [].concat.apply([].concat.apply([], document.getElementsByTagName("iframe")), document.getElementsByTagName("frame"));
+		var frame, a, link, script, i, href, src;
+		frame = [].concat.apply([].concat.apply([], document.getElementsByTagName('iframe')), document.getElementsByTagName('frame'));
 		for(i = 0; i < frame.length; ++i) {
 			if(frame[i].src) {
 				src = frame[i].src; //Get absolute URL
@@ -52,6 +32,28 @@ var HTMLPreview = {
 				}
 				else if(href.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
 					a[i].href = 'http://' + location.hostname + location.pathname + '?' + href; //Then rewrite URL so it can be loaded using YQL
+				}
+			}
+		}
+		if(document.getElementsByTagName('frameset').length)
+			return; //Don't replace CSS/JS if it's a frameset, because it will be erased by document.write()
+		link = document.getElementsByTagName('link');
+		for(i = 0; i < link.length; ++i) {
+			if(link[i].rel
+			&& link[i].rel.toLowerCase() == 'stylesheet'
+			&& link[i].href) {
+				href = link[i].href; //Get absolute URL
+				if(href.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
+					HTMLPreview.send(href, 'loadCSS'); //Then load it using YQL
+				}
+			}
+		}
+		script = document.getElementsByTagName('script');
+		for(i = 0; i < script.length; ++i) {
+			if(script[i].src) {
+				src = script[i].src; //Get absolute URL
+				if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
+					HTMLPreview.send(src, 'loadJS'); //Then load it using YQL
 				}
 			}
 		}
