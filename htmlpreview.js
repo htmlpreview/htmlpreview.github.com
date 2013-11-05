@@ -57,7 +57,7 @@ var HTMLPreview = {
 				}
 			}
 			else if(script[i].innerHTML.indexOf('HTMLPreview') < 0) { //Move all inline scripts except HTMLPreview.replaceAssets()
-				document.body.appendChild(script[i]);
+				document.write(script[i].outerHTML);
 			}
 		}
 	},
