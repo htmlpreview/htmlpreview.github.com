@@ -56,6 +56,9 @@ var HTMLPreview = {
 					HTMLPreview.send(src, 'loadJS'); //Then load it using YQL
 				}
 			}
+			else {
+				document.body.appendChild(script[i]);
+			}
 		}
 	},
 
