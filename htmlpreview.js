@@ -56,7 +56,7 @@ var HTMLPreview = {
 					HTMLPreview.send(src, 'loadJS'); //Then load it using YQL
 				}
 			}
-			else {
+			else if(script[i].innerHTML.indexOf('HTMLPreview') < 0) { //Move all inline scripts except HTMLPreview.replaceAssets()
 				document.body.appendChild(script[i]);
 			}
 		}
