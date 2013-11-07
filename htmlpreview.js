@@ -33,7 +33,7 @@ var HTMLPreview = {
 		}
 		if(document.querySelectorAll('frameset').length)
 			return; //Don't replace CSS/JS if it's a frameset, because it will be erased by document.write()
-		link = document.getElementsByTagName('link[rel=stylesheet]');
+		link = document.querySelectorAll('link[rel=stylesheet]');
 		for(i = 0; i < link.length; ++i) {
 			href = link[i].href; //Get absolute URL
 			if(href.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
