@@ -46,7 +46,7 @@ var HTMLPreview = {
 			if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
 				HTMLPreview.send(src, 'loadJS'); //Then load it using YQL
 			}
-			else if(script[i].innerHTML.indexOf('HTMLPreview') < 0) { //Move all inline scripts except HTMLPreview.replaceAssets()
+			else if(!src && script[i].innerHTML.indexOf('HTMLPreview') < 0) { //Move all inline scripts except HTMLPreview.replaceAssets()
 				document.write(script[i].outerHTML);
 			}
 		}
