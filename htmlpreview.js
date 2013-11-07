@@ -33,14 +33,14 @@ var HTMLPreview = {
 		}
 		if(document.querySelectorAll('frameset').length)
 			return; //Don't replace CSS/JS if it's a frameset, because it will be erased by document.write()
-		link = document.getElementsByTagName('link[rel=stylesheet][href]');
+		link = document.getElementsByTagName('link[rel=stylesheet]');
 		for(i = 0; i < link.length; ++i) {
 			href = link[i].href; //Get absolute URL
 			if(href.indexOf('//raw.github.com') > 0 || href.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
 				HTMLPreview.send(href, 'loadCSS'); //Then load it using YQL
 			}
 		}
-		script = document.querySelectorAll('script[src]');
+		script = document.querySelectorAll('script');
 		for(i = 0; i < script.length; ++i) {
 			src = script[i].src; //Get absolute URL
 			if(src.indexOf('//raw.github.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
