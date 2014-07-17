@@ -55,10 +55,15 @@ var HTMLPreview = {
 	loadHTML: function(data) {
 		if(data
 		&& data.query
-		&& data.query.results
-		&& data.query.results.resources
-		&& data.query.results.resources.content
-		&& data.query.results.resources.status == 200) {
+		&& data.query.redirect) {
+			HTMLPreview.send(data.query.redirect.content, 'loadHTML');
+		}
+		else    if(data
+			&& data.query
+			&& data.query.results
+			&& data.query.results.resources
+			&& data.query.results.resources.content
+			&& data.query.results.resources.status == 200) {
 			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.raw() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
 			setTimeout(function() {
 				document.open();
@@ -66,7 +71,7 @@ var HTMLPreview = {
 				document.close();
 			}, 50); //Delay updating document to have it cleared before
 		}
-		else if(data
+		else    if(data
 			&& data.error
 			&& data.error.description) {
 			HTMLPreview.previewform.innerHTML = data.error.description;
@@ -78,10 +83,15 @@ var HTMLPreview = {
 	loadCSS: function(data) {
 		if(data
 		&& data.query
-		&& data.query.results
-		&& data.query.results.resources
-		&& data.query.results.resources.content
-		&& data.query.results.resources.status == 200) {
+		&& data.query.redirect) {
+			HTMLPreview.send(data.query.redirect.content, 'loadCSS');
+		}
+		else    if(data
+			&& data.query
+			&& data.query.results
+			&& data.query.results.resources
+			&& data.query.results.resources.content
+			&& data.query.results.resources.status == 200) {
 			document.write('<style>' + data.query.results.resources.content.replace(/url\((?:'|")?([^\/][^:'"\)]+)(?:'|")?\)/gi, 'url(' + data.query.results.resources.url.replace(/[^\/]+\.css.*$/gi, '') + '$1)') + '</style>'); //If relative URL in CSS background-image property, then concatenate URL to CSS directory
 		}
 	},
@@ -89,10 +99,15 @@ var HTMLPreview = {
 	loadJS: function(data) {
 		if(data
 		&& data.query
-		&& data.query.results
-		&& data.query.results.resources
-		&& data.query.results.resources.content
-		&& data.query.results.resources.status == 200) {
+		&& data.query.redirect) {
+			HTMLPreview.send(data.query.redirect.content, 'loadJS');
+		}
+		else    if(data
+			&& data.query
+			&& data.query.results
+			&& data.query.results.resources
+			&& data.query.results.resources.content
+			&& data.query.results.resources.status == 200) {
 			document.write('<script>' + data.query.results.resources.content + '</script>');
 		}
 	},
