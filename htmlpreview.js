@@ -55,10 +55,9 @@ var HTMLPreview = {
 	loadHTML: function(data) {
 		if(data
 		&& data.query
-		&& data.query.results
-		&& data.query.results.resources
-		&& data.query.results.resources.redirect) {
-			HTMLPreview.send(data.query.results.resources.redirect.url, 'loadHTML');
+		&& data.query.diagnostics
+		&& data.query.diagnostics.redirect) {
+			HTMLPreview.send(data.query.diagnostics.redirect.content, 'loadHTML');
 		}
 		else    if(data
 			&& data.query
@@ -85,10 +84,9 @@ var HTMLPreview = {
 	loadCSS: function(data) {
 		if(data
 		&& data.query
-		&& data.query.results
-		&& data.query.results.resources
-		&& data.query.results.resources.redirect) {
-			HTMLPreview.send(data.query.results.resources.redirect.url, 'loadCSS');
+		&& data.query.diagnostics
+		&& data.query.diagnostics.redirect) {
+			HTMLPreview.send(data.query.diagnostics.redirect.content, 'loadCSS');
 		}
 		else    if(data
 			&& data.query
@@ -103,10 +101,9 @@ var HTMLPreview = {
 	loadJS: function(data) {
 		if(data
 		&& data.query
-		&& data.query.results
-		&& data.query.results.resources
-		&& data.query.results.resources.redirect) {
-			HTMLPreview.send(data.query.results.resources.redirect.url, 'loadJS');
+		&& data.query.diagnostics
+		&& data.query.diagnostics.redirect) {
+			HTMLPreview.send(data.query.diagnostics.redirect.content, 'loadJS');
 		}
 		else    if(data
 			&& data.query
