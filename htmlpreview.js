@@ -18,17 +18,17 @@ var HTMLPreview = {
 		for(i = 0; i < frame.length; ++i) {
 			src = frame[i].src; //Get absolute URL
 			if(src.indexOf('//raw.githubusercontent.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
-				frame[i].src = 'http://' + location.hostname + location.pathname + '?' + src; //Then rewrite URL so it can be loaded using YQL
+				frame[i].src = '//' + location.hostname + location.pathname + '?' + src; //Then rewrite URL so it can be loaded using YQL
 			}
 		}
 		a = document.querySelectorAll('a[href]');
 		for(i = 0; i < a.length; ++i) {
 			href = a[i].href; //Get absolute URL
 			if(href.indexOf('#') > 0) { //Check if it's an anchor
-				a[i].href = 'http://' + location.hostname + location.pathname + location.search + '#' + a[i].hash.substring(1); //Then rewrite URL with support for empty anchor
+				a[i].href = '//' + location.hostname + location.pathname + location.search + '#' + a[i].hash.substring(1); //Then rewrite URL with support for empty anchor
 			}
 			else if((href.indexOf('//raw.githubusercontent.com') > 0 || href.indexOf('//bitbucket.org') > 0) && (href.indexOf('.html') > 0 || href.indexOf('.htm') > 0)) { //Check if it's from raw.github.com or bitbucket.org and to HTML files
-				a[i].href = 'http://' + location.hostname + location.pathname + '?' + href; //Then rewrite URL so it can be loaded using YQL
+				a[i].href = '//' + location.hostname + location.pathname + '?' + href; //Then rewrite URL so it can be loaded using YQL
 			}
 		}
 		if(document.querySelectorAll('frameset').length)
@@ -65,7 +65,7 @@ var HTMLPreview = {
 			&& data.query.results.resources
 			&& data.query.results.resources.content
 			&& data.query.results.resources.status == 200) {
-			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.raw() + '">').replace(/<\/body>/i, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="http://' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
+			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.raw() + '">').replace(/<\/body>/i, '<script src="//' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="//' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
 			setTimeout(function() {
 				document.open();
 				document.write(HTMLPreview.content);
@@ -116,7 +116,7 @@ var HTMLPreview = {
 	},
 
 	send: function(file, callback) {
-		document.write('<script src="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20data.headers%20where%20url%3D%22' + encodeURIComponent(file) + '%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=HTMLPreview.' + callback + '"></script>'); //Get content using YQL
+		document.write('<script src="//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20data.headers%20where%20url%3D%22' + encodeURIComponent(file) + '%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=HTMLPreview.' + callback + '"></script>'); //Get content using YQL
 	},
 
 	submitform: function() {
