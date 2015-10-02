@@ -8,7 +8,7 @@ If you try to open raw versions of any HTML, CSS or JS files in a web browser di
 In order to use it, just prepend this fragment to the URL of any HTML file: **[http://htmlpreview.github.io/?](http://htmlpreview.github.io/?)**
 
 E.g.:
-http://htmlpreview.github.io/?https://raw.github.com/twbs/bootstrap/gh-pages/2.3.2/index.html
+http://htmlpreview.github.io/?https://github.com/twbs/bootstrap/gh-pages/2.3.2/index.html
 http://htmlpreview.github.io/?https://github.com/documentcloud/backbone/blob/master/examples/todos/index.html
 
 What it does is load HTML using YQL, then process all links, frames, scripts and styles, and load each of them using YQL, so they can be evaluted in the browser. Here is the workflow:
