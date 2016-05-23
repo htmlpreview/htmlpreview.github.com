@@ -40,13 +40,14 @@ var HTMLPreview = {
 				HTMLPreview.send(href, 'loadCSS'); //Then load it using YQL
 			}
 		}
-		script = document.querySelectorAll('script');
+		script = document.querySelectorAll('script[type="text/htmlpreview"]');
 		for(i = 0; i < script.length; ++i) {
 			src = script[i].src; //Get absolute URL
 			if(src.indexOf('//raw.githubusercontent.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
 				HTMLPreview.send(src, 'loadJS'); //Then load it using YQL
 			}
-			else if(!src && script[i].innerHTML.indexOf('HTMLPreview') < 0) { //Move all inline scripts except HTMLPreview.replaceAssets()
+			else { //Append all inline scripts
+				script[i].removeAttribute('type');
 				document.write(script[i].outerHTML);
 			}
 		}
@@ -65,7 +66,7 @@ var HTMLPreview = {
 			&& data.query.results.resources
 			&& data.query.results.resources.content
 			&& data.query.results.resources.status == 200) {
-			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.raw() + '">').replace(/<\/body>/i, '<script src="//' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="//' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
+			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.raw() + '">').replace(/<script( type=["'](text|application)\/javascript["'])?/gi, '<script type="text/htmlpreview"').replace(/<\/body>/i, '<script src="//' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="//' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
 			setTimeout(function() {
 				document.open();
 				document.write(HTMLPreview.content);
