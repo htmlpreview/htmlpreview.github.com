@@ -11,6 +11,9 @@ var HTMLPreview = {
 			if (referrer.toLowerCase().endsWith('.md')) {
 				referrer = referrer.substring(0, referrer.lastIndexOf('/')+1);
 			}
+			if (! referrer.endsWith('/')) {
+				referrer = referrer + '/';
+			}
 			return referrer + url;
 		} else {
 			return url;
@@ -77,7 +80,7 @@ var HTMLPreview = {
 			&& data.query.results.resources.status == 200) {
 			HTMLPreview.content = data.query.results.resources.content.replace(/<head>/i, '<head><base href="' + HTMLPreview.raw() + '">').replace(/<script( type=["'](text|application)\/javascript["'])?/gi, '<script type="text/htmlpreview"').replace(/<\/body>/i, '<script src="//' + location.hostname + '/htmlpreview.min.js"></script><script>HTMLPreview.replaceAssets();</script></body>').replace(/<\/head>\s*<frameset/gi, '<script src="//' + location.hostname + '/htmlpreview.min.js"></script><script>document.addEventListener("DOMContentLoaded",HTMLPreview.replaceAssets,false);</script></head><frameset'); //Add <base> just after <head> and inject <script> just before </body> or </head> if <frameset>
 			setTimeout(function() {
-				document.open();
+				document.open("text/html", "replace");
 				document.write(HTMLPreview.content);
 				document.close();
 			}, 50); //Delay updating document to have it cleared before
