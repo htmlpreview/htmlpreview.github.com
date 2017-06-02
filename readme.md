@@ -10,6 +10,10 @@ In order to use it, just prepend this fragment to the URL of any HTML file: **[h
  - http://htmlpreview.github.io/?https://github.com/twbs/bootstrap/gh-pages/2.3.2/index.html
  - http://htmlpreview.github.io/?https://github.com/documentcloud/backbone/blob/master/examples/todos/index.html
 
+When used from a markdown file on github, it is also possible to use relative urls within the same repository. Very useful for linking from .md files to html files relative to the same revision in the repository. e.g.:
+
+- https://htmlpreview.github.io/?../../raml/api.html#nodes__nodeid__gws_post
+
 What it does is load HTML using YQL, then process all links, frames, scripts and styles, and load each of them using YQL, so they can be evaluted in the browser. Here is the workflow:
 ```
 HTMLPreview.init() -> HTMLPreview.send(HTML) -> YQL fetch HTML -> HTMLPreview.loadHTML(data) -> HTMLPreview.replaceAssets() -> HTMLPreview.send(CSS) -> YQL fetch CSS -> HTMLPreview.loadCSS(data) -> HTMLPreview.send(JS) -> YQL fetch JS -> HTMLPreview.loadJS(data)
