@@ -5,7 +5,16 @@ var HTMLPreview = {
 	previewform: document.getElementById('previewform'),
 
 	file: function() {
-		return location.search.substring(1); //Get everything after the ?
+		var url = location.search.substring(1); //Get everything after the ?
+		var referrer = document.referrer;
+		if ((url.startsWith('./') || url.startsWith('../')) && referrer) {
+			if (referrer.toLowerCase().endsWith('.md')) {
+				referrer = referrer.substring(0, referrer.lastIndexOf('/')+1);
+			}
+			return referrer + url;
+		} else {
+			return url;
+		}
 	},
 
 	raw: function() {
