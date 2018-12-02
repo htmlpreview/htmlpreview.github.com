@@ -54,13 +54,14 @@ var HTMLPreview = {
 	},
 
 	loadHTML: function(data) {
-		if(data
+		/* if(data
 		&& data.query
 		&& data.query.diagnostics
 		&& data.query.diagnostics.redirect) {
 			HTMLPreview.send(data.query.diagnostics.redirect.content, 'loadHTML');
 		}
-		else    if(data
+		else */
+		if(data
 			&& data.query
 			&& data.query.results
 			&& data.query.results.resources
@@ -83,13 +84,14 @@ var HTMLPreview = {
 	},
 
 	loadCSS: function(data) {
-		if(data
+		/* if(data
 		&& data.query
 		&& data.query.diagnostics
 		&& data.query.diagnostics.redirect) {
 			HTMLPreview.send(data.query.diagnostics.redirect.content, 'loadCSS');
 		}
-		else    if(data
+		else */
+		if(data
 			&& data.query
 			&& data.query.results
 			&& data.query.results.resources
@@ -100,13 +102,13 @@ var HTMLPreview = {
 	},
 
 	loadJS: function(data) {
-		if(data
+		/* if(data
 		&& data.query
 		&& data.query.diagnostics
 		&& data.query.diagnostics.redirect) {
 			HTMLPreview.send(data.query.diagnostics.redirect.content, 'loadJS');
-		}
-		else    if(data
+		} else */
+		if(data
 			&& data.query
 			&& data.query.results
 			&& data.query.results.resources
