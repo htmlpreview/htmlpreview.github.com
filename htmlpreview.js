@@ -117,7 +117,7 @@ var HTMLPreview = {
 	},
 
 	send: function(file, callback) {
-		document.write('<script src="//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20data.headers%20where%20url%3D%22' + encodeURIComponent(file) + '%22&format=json&diagnostics=true&callback=HTMLPreview.' + callback + '"></script>'); //Get content using YQL
+		document.write('<script src="//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20data.headers%20where%20url%3D%22' + encodeURIComponent(file) + '%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&diagnostics=true&callback=HTMLPreview.' + callback + '"></script>'); //Get content using YQL
 	},
 
 	submitform: function() {
