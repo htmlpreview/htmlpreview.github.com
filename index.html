@@ -1,44 +1,79 @@
+
+<!-- 
+    HXCO (https://github.com/hxco/Template) HTML Template 
+    Made with love by HXCO Hangxin (https://tech.hxco.de)
+    Modified from https://api.i-meto.com (Now it's https://api.i-meto.com.cache.hxco.org). 
+-->
+
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<title>GitHub &amp; BitBucket HTML Preview</title>
-	<style>
-	body {
-		font: 12px 'Helvetica Neue', Helvetica, Arial, freesans, clean, sans-serif;
-		color: #333;
-	}
-	h1 {
-		font-size: 20px;
-	}
-	a {
-		color: #666;
-	}
-	form {
-		padding: 20px; 
-		text-align: center;
-	}
-	strong {
-		color: #333;
-		background-color: #FAFFA6;
-		padding: 0.1em;
-	}
-	#footer {
-		margin: 20px 0;
-		font-size: 10px;
-		color: #666;
-	}
-	</style>
+    <title>GitHub & BitBucket HTML Preview</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="GitHub Preview,GitHub HTML Preview,HTML Preview,Free HTML Preview,BitBucket HTML Preview,GitHub Project Preview,HXCO General Template" />
+    <meta name="Description" content="GitHub & BitBucket HTML Preview is a free online service that allows you to preview any html files with a simple click!"/>
+
+    <!-- dns-prefetch headers -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.loli.net">
+    <link rel="dns-prefetch" href="https://gstatic.loli.net">
+    <link rel="dns-prefetch" href="https://hxco.org">
+
+
+    <!-- Other CSS Framework Begin -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/picturepan2/spectre@0.5.3/dist/spectre.min.css" integrity="sha256-eBag0DNksOEjebVrDSBxOYWaIsRA5RBzz/PWQtkgmvM=" crossorigin="anonymous">
+    <!-- Other CSS Framework End -->
+
+    <!-- Preload Style.css -->
+    <link href="https://template.hxco.org/style.min.css" rel="preload" as="style">
+    <link href="https://template.hxco.org/style.min.css" rel="stylesheet">
+
+    <!-- Import Icon -->
+    <link rel="icon" href="logo.png">
+    <link rel="apple-touch-icon-precomposed" href="logo.png">
 </head>
+
 <body>
-	<form id="previewform" action="">
-		<h1>GitHub &amp; BitBucket HTML Preview</h1>
-		<p>Enter URL of the HTML file to preview: <input type="url" id="file" value="" placeholder="e.g. https://github.com/user/repo/blob/master/index.html" size="60" autofocus> <input type="submit" value="&raquo;"></p>
-		<p>or prepend to the URL: <strong>http://htmlpreview.github.io/?</strong>https://github.com/twbs/bootstrap/blob/gh-pages/2.3.2/index.html</p>
-		<p>or use this bookmarklet while browsing GitHub or BitBucket: <a href="javascript:void('http://htmlpreview.github.io/'==window.location?alert('Drag me to your bookmarks bar!'):window.location='http://htmlpreview.github.io/?'+window.location)"><strong>HTMLPreview</strong></a></p>
-		<p id="footer">Developed by <a href="https://github.com/niutech">niu tech</a> | Contribute on <a href="https://github.com/htmlpreview/htmlpreview.github.com">GitHub</a></p>
-	</form>
-	<script src="/htmlpreview.min.js"></script>
-	<script>HTMLPreview.init();</script>
+
+    <style>
+    /* Custom CSS Here     */
+    .title {
+        font-size: 50px;
+    }
+    .words {
+        font-size: 20px;
+    }
+    </style>
+
+    <!-- Footer Information Part -->
+    <p class="normal footer">Developed by <a href="https://github.com/niutech">niu tech</a> | Contribute on <a href="https://github.com/htmlpreview/htmlpreview.github.com">GitHub</a><br>Page Styled By <a href="https://tech.hxco.de" target="_blank">Huangxin</a> With <a href="https://template.hxco.org" target="_blank">HXCO General Template</a>
+
+    <!-- Title Part -->
+    <div class="container">
+        <div class="content">
+            <form id="previewform" action="">
+            <div class="title">GitHub & BitBucket HTML Preview
+                <p></p>
+                <div class="words">Enter URL of the HTML file to preview:<br>
+                    <input
+                      type="url"
+                      id="file"
+                      value=""
+                      placeholder=" https://github.com/user/repo/blob/master/index.html"
+                      size="60"
+                      autofocus
+                      />
+                </div>
+            </div>
+        </form>
+
+            <script src="https://htmlpreview.github.io/htmlpreview.min.js"></script>
+            <script>
+              HTMLPreview.init();
+            </script>
 </body>
+
 </html>
