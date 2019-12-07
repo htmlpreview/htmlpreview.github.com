@@ -88,7 +88,7 @@
 	
 	var fetchProxy = function (url, options, i) {
 		var proxy = [
-			'https://cors.io/?',
+			//'https://cors.io/?',
 			'https://jsonp.afeld.me/?url=',
 			'https://cors-anywhere.herokuapp.com/'
 		];
