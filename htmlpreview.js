@@ -88,8 +88,9 @@
 	
 	var fetchProxy = function (url, options, i) {
 		var proxy = [
+			'https://cors-anywhere.herokuapp.com/',
 			'https://yacdn.org/serve/',
-			'https://cors-anywhere.herokuapp.com/'
+			'https://api.codetabs.com/v1/proxy/?quest='
 		];
 		return fetch(proxy[i] + url, options).then(function (res) {
 			return res.text();
