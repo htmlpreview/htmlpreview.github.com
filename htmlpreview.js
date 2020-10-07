@@ -88,7 +88,6 @@
 	
 	var fetchProxy = function (url, options, i) {
 		var proxy = [
-			'https://thingproxy.freeboard.io/fetch/',
 			'https://yacdn.org/serve/',
 			'https://cors-anywhere.herokuapp.com/'
 		];
