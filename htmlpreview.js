@@ -89,6 +89,7 @@
 	
 	var fetchProxy = function (url, options, i) {
 		var proxy = [
+			'', // try without proxy first
 			'https://cors-anywhere.herokuapp.com/',
 			'https://yacdn.org/proxy/',
 			'https://api.codetabs.com/v1/proxy/?quest='
@@ -104,10 +105,7 @@
 	};
 
 	if (url && url.indexOf(location.hostname) < 0)
-		fetch(url).then(function (res) {
-			if (!res.ok) throw new Error('Cannot load ' + url + ': ' + res.status + ' ' + res.statusText);
-			return res.text();
-		}).then(loadHTML).catch(function (error) {
+		fetchProxy(url, null, 0).then(loadHTML).catch(function (error) {
 			console.error(error);
 			previewForm.style.display = 'block';
 			previewForm.innerText = error;
