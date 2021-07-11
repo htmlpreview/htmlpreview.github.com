@@ -90,8 +90,6 @@
 	var fetchProxy = function (url, options, i) {
 		var proxy = [
 			'', // try without proxy first
-			'https://cors-anywhere.herokuapp.com/',
-			'https://yacdn.org/proxy/',
 			'https://api.codetabs.com/v1/proxy/?quest='
 		];
 		return fetch(proxy[i] + url, options).then(function (res) {
