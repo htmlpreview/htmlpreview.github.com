@@ -2,7 +2,7 @@
 	
 	var previewForm = document.getElementById('previewform');
 
-	var url = location.search.substring(1).replace(/\/\/github\.com/, '//raw.githubusercontent.com').replace(/\/blob\//, '/'); //Get URL of the raw file
+	var url = location.search.substring(1).replace(/\/\/github\.com/, '//raw.githubusercontent.com').replace(/\/blob\//, '/').replace(/\/raw\//, '/'); //Get URL of the raw file
 
 	var replaceAssets = function () {
 		var frame, a, link, links = [], script, scripts = [], i, href, src;
