@@ -85,6 +85,7 @@
 			script.innerHTML = data;
 			document.body.appendChild(script);
 		}
+		
 	};
 	
 	var fetchProxy = function (url, options, i) {
