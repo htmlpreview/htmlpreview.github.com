@@ -44,7 +44,7 @@
 		script = document.querySelectorAll('script[type="text/htmlpreview"]');
 		for (i = 0; i < script.length; ++i) {
 			src = script[i].src; //Get absolute URL
-			if (src.indexOf('//raw.githubusercontent.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
+			if (script[i].hasAttribute("src")) { //Check if it's has src attribute
 				scripts.push(fetchProxy(src, null, 0)); //Then add it to scripts queue and fetch using CORS proxy
 			} else {
 				script[i].removeAttribute('type');
