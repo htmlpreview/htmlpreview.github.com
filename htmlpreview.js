@@ -61,7 +61,16 @@
 
 	var loadHTML = function (data) {
 		if (data) {
-			data = data.replace(/<head([^>]*)>/i, '<head$1><base href="' + url + '">').replace(/<script(\s*src=["'][^"']*["'])?(\s*type=["'](text|application)\/javascript["'])?/gi, '<script type="text/htmlpreview"$1'); //Add <base> just after <head> and replace <script type="text/javascript"> with <script type="text/htmlpreview">
+			const headRegex = /<head([^>]*)>/;
+			const baseTag = '<base href="' + url + '">'
+			if (data.search(headRegex) >= 0) {
+				data = data.replace(headRegex, '<head$1>' + baseTag);
+				// add <base> just after <head>
+			} else {
+				// probably not a complete HTML document, append <base> anyway
+				data = data + baseTag;
+			}
+			data = data.replace(/<script(\s*src=["'][^"']*["'])?(\s*type=["'](text|application)\/javascript["'])?/gi, '<script type="text/htmlpreview"$1'); // replace <script type="text/javascript"> with <script type="text/htmlpreview">
 			setTimeout(function () {
 				document.open();
 				document.write(data);
