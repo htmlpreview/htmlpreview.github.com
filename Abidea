@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/image/pageasset/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/image/pageasset/favicon-16x16.png">
+    <link rel="shortcut icon" href="asset/image/pageasset/favicon.ico">
+    <!-- metatag -->
+    <meta name="author" content="Rama Hardian" />
+    <meta property="og:title" itemprop="name" content="photographer portfolio landing page" />
+    <meta property="og:url" itemprop="url" content="https://ramahardian.my.id/templatedemo/reypotret/" />
+    <meta property="og:image" itemprop="image" content="https://ramahardian.my.id/templatedemo/reypotret/asset/pageasset/bg.jpg" />
+    <meta property="og:description" content="welcome to personal photographer portfolio landing page" />
+    <meta property="og:site_name" content="Reypotret" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="photographer portfolio landing page">
+    <meta name="twitter:description" content="welcome to personal photographer portfolio landing page">
+    <meta name="twitter:image" content="https://ramahardian.my.id/templatedemo/reypotret/asset/pageasset/bg.jpg">
+    <meta id="tw_url" name="twitter:url" content="https://ramahardian.my.id/templatedemo/reypotret/">
+    <!-- title page -->
+    <title>Reypotret - photographer portfolio template
+
+
+    </title>
+    <!-- main style  -->
+    <link id="mainstyle" href="css/dark.css" rel="stylesheet">
+    <!-- responsive style -->
+    <link id="responsives" href="css/responsive.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- LOADDER WRAP -->
+    <div class="loading ">
+        <div class="box">
+            <img src="asset/image/pageasset/logo.png" class="img-load" alt="logo" />
+            <div class="progress">
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END LOADDER WRAP -->
+    <!-- HEADDER MAIN -->
+    <header>
+        <!-- NAVBAR -->
+        <div class="container">
+            <nav id="navigation-main" class="navbar fixed-top navbar-expand-lg transcolors">
+                <div class="container">
+                    <a class="navbar-brand" href="#header">
+                        <span class="d-inline">
+                        <img class="logo" src="asset/image/pageasset/logo.png" alt="logo" />
+                        </span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigationlist" aria-controls="navigationlist" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <i class="fa fa-navicon"></i>
+                        </span>
+                    </button>
+                    <div class="navbar-collapse pb-lg-0 pb-4 mt-4 mt-lg-0 collapse justify-content-end" id="navigationlist">
+
+
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
+                            <li class="ms-lg-3 me-lg-3">
+                                <a class="nav-link" href="#about-section">About me</a>
+                            </li>
+                            <li class="ms-lg-3 me-lg-3">
+                                <a class="nav-link" href="#portfolio-section">Portfolio</a>
+                            </li>
+                            <li class="ms-lg-3 me-lg-3">
+                                <a class="nav-link" href="#testimonial-section">Testimonials</a>
+                            </li>
+
+                            <li class="ms-lg-3 me-lg-3">
+                                <a class="nav-link" href="#price-section">Prices</a>
+                            </li>
+                            <li class="ms-lg-3 me-lg-3">
+                                <a class="nav-link" href="#contact-section">Contact</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- END NAVBAR -->
+    </header>
+    <!-- END HEADDER MAIN -->
+    <!-- MAIN WRAP -->
+    <main>
+        <a href="index.html" class="lg mt-lg-0 mt-4"><i class="fa fa-moon-o"></i></a>
+        <!-- HERO SECTION -->
+        <section id="home-section" class="pb-5 mb-5" style="background-image: url('asset/image/hero/7.jpg');">
+            <div class="container position-relative">
+                <div class="row min-vh-100">
+                    <div class="col-lg-8 align-items-center justify-content-left d-flex ">
+                        <div class="hero-about pt-5 transcolors">
+                            <h1 class="mb-4">
+                                HELLO AND WELCOME
+                            </h1>
+                            <span class="typed"></span>
+                            <!--<p class="description-p pt-3 pr-lg-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam temporibus vel blanditiis nulla, autem ratione! Hic non, illum, rem ratione architecto facere distinctio est quam, id a aspernatur placeat porro.</p>-->
+                            <p></p>
+                            <a href="#" class="btn rey-btn mt-3">More info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sosmed-vertical">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                </div>
+            </div>
+        </section>
+        <!-- END HERO SECTION -->
+        <!-- ABOUT SECTION -->
+        <section id="about-section" class="pt-5 pb-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 align-items-center d-flex">
+                        <div class="text-center">
+                            <p class="pb-4">A camera that puts a world of possibilities at your fingertips. Literally Exceptional images deserve an exceptional presentation Explore. Create. Inspire.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-5 mt-lg-5">
+                    <div class="col-lg-5 pr-lg-5">
+                        <figure>
+                            <img class="img-fluid" src="asset/image/hero/h-2.jpg" alt="poto-1" />
+                        </figure>
+                    </div>
+                    <div class="col-lg-7 pl-lg-5 pt-5">
+                        <div class="wrap-about">
+                            <div class="title-big pb-5 text-left">
+                                <h2>MY STORY</h2>
+                                <h3>ABOUT ME</h3>
+                            </div>
+                            <p class="description-p text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere sequi, quia, est sed dicta aliquid quidem facilis culpa iure perferendis? Dolor ad quia deserunt.</p>
+                            <p class="description-p text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus necessitatibus dolorem recusandae placeat quas eum? Optio rem dolores sit ullam nostrum.</p>
+                            <div class="sosmed-horizontal pt-3 pb-3">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                            <a href="#" class="btn rey-btn mt-3">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END ABOUT SECTION -->
+        <!-- WHAT IDO -->
+        <section id="whatido-section" class="pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="whatido" class="owl-carousel">
+                            <!-- ITEM WHATIDO -->
+                            <div class="card-wrap text-center cl">
+                                <img src="./asset/image/icon/1.png" alt="ico" class="icon-i" />
+                                <div class="inner-detail pt-3">
+                                    <h3>Graphic designer</h3>
+                                    <p class="pt-2 text-muted">
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore veniam excepturi quas minima accusantium. Esse, accusantium. Laboriosam excepturi
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- END ITEM WHATIDO -->
+                            <!-- ITEM WHATIDO -->
+                            <div class="card-wrap text-center cl">
+                                <img src="./asset/image/icon/2.png" alt="ico" class="icon-i" />
+                                <div class="inner-detail pt-3">
+                                    <h3>Business Strategy</h3>
+                                    <p class="pt-2 text-muted">
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore veniam excepturi quas minima accusantium. Esse, accusantium. Laboriosam excepturi
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- END ITEM WHATIDO -->
+                            <!-- ITEM WHATIDO -->
+                            <div class="card-wrap text-center cl">
+                                <img src="./asset/image/icon/3.png" alt="ico" class="icon-i" />
+                                <div class="inner-detail pt-3">
+                                    <h3>Content Building</h3>
+                                    <p class="pt-2 text-muted">
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore veniam excepturi quas minima accusantium. Esse, accusantium. Laboriosam excepturi
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- ITEM WHATIDO -->
+                            <div class="card-wrap text-center cl">
+                                <img src="./asset/image/icon/4.png" alt="ico" class="icon-i" />
+                                <div class="inner-detail pt-3">
+                                    <h3>Globe</h3>
+                                    <p class="pt-2 text-muted">
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore veniam excepturi quas minima accusantium. Esse, accusantium. Laboriosam excepturi
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- END ITEM WHATIDO -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END WHAT IDO -->
+        <!-- PORTFOLIO SECTION  -->
+        <section id="portfolio-section" class="pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-left">
+                        <div class="title-big pb-5 mb-3 text-left">
+                            <h2>RECENT WORK</h2>
+                            <h3>PORTFOLIO</h3>
+                        </div>
+                        <div class="warp-filter pb-4">
+                            <ul class="filter justify-content-right nav">
+                                <li data-group="all" class="active">All</li>
+                                <li data-group="personal">Personal</li>
+                                <li data-group="comercial">Comercial</li>
+                                <li data-group="brand">Brand</li>
+                            </ul>
+                        </div>
+                        <div id="portfolio-warp">
+                            <!-- ITEM PORTFOLIO -->
+                            <div class="grid-item" data-groups='["personal"]'>
+                                <a class="popup-image gallery-link" href="asset/image/portfolio/1.jpg">
+                                    <div class="overlay-porto">
+                                        <div class="texts">
+                                            <p>Welcome to the jungle</p>
+                                            <h4>New York City</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content-porto" style="background: url(asset/image/portfolio/1.jpg) no-repeat center;  background-position: center;
+                                    background-size: cover;"></div>
+                                </a>
+                            </div>
+                            <!-- ITEM PORTFOLIO -->
+                            <div class="grid-item" data-groups='["personal"]'>
+                                <a class="popup-image gallery-link" href="asset/image/portfolio/2.jpg">
+                                    <div class="overlay-porto">
+                                        <div class="texts">
+                                            <p>urban style</p>
+                                            <h4>ethnic Feeling</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content-porto" style="background: url(asset/image/portfolio/2.jpg) no-repeat center;  background-position: center;
+                                    background-size: cover;"></div>
+                                </a>
+                            </div>
+                            <!-- ITEM PORTFOLIO -->
+                            <div class="grid-item" data-groups='["comercial"]'>
+                                <a class="popup-image gallery-link" href="asset/image/portfolio/3.jpg">
+                                    <div class="overlay-porto">
+                                        <div class="texts">
+                                            <p>urban style</p>
+                                            <h4>deep view</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content-porto" style="background: url(asset/image/portfolio/3.jpg) no-repeat center;  background-position: center;
+                                    background-size: cover;"></div>
+                                </a>
+                            </div>
+                            <!-- ITEM PORTFOLIO -->
+                            <div class="grid-item" data-groups='["brand"]'>
+                                <a class="popup-image gallery-link" href="asset/image/portfolio/4.jpg">
+                                    <div class="overlay-porto">
+                                        <div class="texts">
+                                            <p>urban style</p>
+                                            <h4>trendy view</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content-porto" style="background: url(asset/image/portfolio/4.jpg) no-repeat center;  background-position: center;
+                                    background-size: cover;"></div>
+                                </a>
+                            </div>
+                            <!-- ITEM PORTFOLIO -->
+                            <div class="grid-item" data-groups='["comercial"]'>
+                                <a class="popup-image gallery-link" href="asset/image/portfolio/5.jpg">
+                                    <div class="overlay-porto">
+                                        <div class="texts">
+                                            <p>fashion branding</p>
+                                            <h4>something awaits</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content-porto" style="background: url(asset/image/portfolio/5.jpg) no-repeat center;  background-position: center;
+                                    background-size: cover;"></div>
+                                </a>
+                            </div>
+                            <!-- ITEM PORTFOLIO -->
+                            <div class="grid-item" data-groups='["comercial"]'>
+                                <a class="popup-image gallery-link" href="asset/image/portfolio/6.jpg">
+                                    <div class="overlay-porto">
+                                        <div class="texts">
+                                            <p>product branding</p>
+                                            <h4>ways to enjoy</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content-porto" style="background: url(asset/image/portfolio/6.jpg) no-repeat center;  background-position: center;
+                                    background-size: cover;"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="btn rey-btn mt-5">More Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END PORTFOLIO SECTION  -->
+        <!-- COUNTER SECTION -->
+        <section id="counter-section" class="pb-5 pt-5 mt-3 mb-5" style="background-image:url(asset/image/hero/5.jpg); background-attachment: fixed; background-size: cover;">
+            <div class="container">
+                <div class="row pt-5 pb-5">
+                    <!-- COUNT ITEM -->
+                    <div class="col-md-4 col-lg-4 text-center count-wrap">
+                        <h3 class="counts">
+                            <i class="fa fa-trophy"></i>
+                            <span class="counter" data-TargetNum="80" data-Speed="7000">0</span>
+                        </h3>
+                        <p class="count-text">PHOTOGRPHY AWWARDS</p>
+                    </div>
+                    <!-- COUNT ITEM -->
+                    <div class="col-md-4 col-lg-4 text-center count-wrap">
+                        <h3 class="counts">
+                            <i class="fa fa-handshake-o"></i>
+                            <span class="counter" data-TargetNum="1300" data-Speed="7000">0</span>
+                        </h3>
+                        <p class="count-text">CLIENT</p>
+                    </div>
+                    <!--  
+                    <div class="col-md-4 col-lg-3 text-center count-wrap">
+                        <h3 class="counts">
+                            <i class="fa fa-smile-o"></i>
+                            <span class="counter" data-TargetNum="1000" data-Speed="7000">0</span>
+                        </h3>
+                        <p class="count-text">HAPPY PEOPLE</p>
+                    </div>
+                  COUNT ITEM -->
+                    <div class="col-md-12 col-lg-4 text-center count-wrap">
+                        <h3 class="counts">
+                            <i class="fa fa-check"></i>
+                            <span class="counter" data-TargetNum="900" data-Speed="7000">0</span>
+                        </h3>
+                        <p class="count-text">PROJECT DONE</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END COUNTER SECTION -->
+        <!-- TESTIMONIAL SECTION -->
+        <section id="testimonial-section" class="pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-left">
+                        <div class="title-big pb-5 mb-3 text-left">
+                            <h2>WHAT THEY SAY</h2>
+                            <h3>CLIENT FEEDBACK</h3>
+                        </div>
+                    </div>
+                    <div id="testimonial-slide" class="owl-carousel owl-theme">
+                        <!-- item testi -->
+                        <div class="item-testi">
+                            <div class="text-testiwrap">
+                                <div class="wraptext text-center">
+                                    <div class="quote pb-3">
+                                        <i class="fa fa-quote-right small"></i>
+                                    </div>
+                                    <p class="text-muted">Lorem ipsum nostrud in ea nulla excepteur in exercitation ut voluptate aliquip deserunt culpa do dolor do est ut occaecat aute exercitation magna velit aute deserunt do ex sunt reprehenderit officia excepteur tempor
+                                        incididunt sunt anim.</p>
+                                </div>
+                            </div>
+                            <div class="poto-userwarp" style="background: url('asset/image/user/2.jpg') center no-repeat; background-size: cover;">
+
+                            </div>
+                        </div>
+                        <!-- item testi -->
+                        <div class="item-testi">
+                            <div class="text-testiwrap">
+                                <div class="wraptext text-center">
+                                    <div class="quote pb-3">
+                                        <i class="fa fa-quote-right small"></i>
+                                    </div>
+                                    <p class="text-muted">Lorem ipsum nostrud in ea nulla excepteur in exercitation ut voluptate aliquip deserunt culpa do dolor do est ut occaecat aute exercitation magna velit aute deserunt do ex sunt reprehenderit officia excepteur tempor
+                                        incididunt sunt anim.</p>
+                                </div>
+                            </div>
+                            <div class="poto-userwarp" style="background: url('asset/image/user/1.jpg') center no-repeat; background-size: cover;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-nav owl-nav"></div>
+                </div>
+            </div>
+        </section>
+        <!-- END TESTIMONIAL SECTION -->
+        <!-- PRICE SECTION -->
+        <section id="price-section" class="pt-5 pb-5 pr-3 pl-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-left  pb-5 mb-5">
+                        <div class="title-big text-left">
+                            <h2>WANT TO HIRING</h2>
+                            <h3>SERVICE PRICES</h3>
+                        </div>
+                    </div>
+                    <!-- ITEM PRICE -->
+                    <div class="col-lg-6 mb-4 ps-lg-0 block-price">
+                        <div class="price-innerdetail text-center">
+                            <h5>MINIMUM BASIC SERVICE</h5>
+                            <p class="prices">150$</p>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Photoshoot duration
+                                </span>
+                                <span class="float-right">4 Hours</span>
+                            </div>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Number photo</span>
+                                <span class="float-right">50 - 200</span>
+                            </div>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Consultation</span>
+                                <span class="float-right">Style</span>
+                            </div>
+                            <a href="#" class="btn rey-btn mt-5">Schedule</a>
+                        </div>
+                    </div>
+                    <!-- END ITEM PRICE -->
+                    <!-- ITEM PRICE -->
+                    <div class="col-lg-6 mb-4 pe-lg-0 block-price order-3 order-lg-2">
+                        <div class="price-innerdetail text-center">
+                            <h5>STANDART SERVICE</h5>
+                            <p class="prices">350$</p>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Photoshoot duration</span>
+                                <span class="float-right">4 Hours</span>
+                            </div>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Number photo</span>
+                                <span class="float-right">50 - 200</span>
+                            </div>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Consultation</span>
+                                <span class="float-right">Style</span>
+                            </div>
+                            <a href="#" class="btn rey-btn mt-5">Schedule</a>
+                        </div>
+                    </div>
+                    <!-- END ITEM PRICE -->
+                    <!-- ITEM PRICE -->
+                    <div class="col-lg-12 block-price ps-lg-0 pe-lg-0 pb-4 order-2 order-lg-3">
+                        <div class="price-innerdetail text-center">
+                            <h5>PRO SERVICE</h5>
+                            <p>650$</p>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Photoshoot duration</span>
+                                <span class="float-right">8 Hours</span>
+                            </div>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Number photo</span>
+                                <span class="float-right">All</span>
+                            </div>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Consultation</span>
+                                <span class="float-right">Style and wardrobe</span>
+                            </div>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Video shooting</span>
+                                <span class="float-right">All</span>
+                            </div>
+                            <div class="detail-pricing">
+                                <span class="float-left">
+                                    <i class="bi bi-check2-circle"></i> Retoucing</span>
+                                <span class="float-right">All</span>
+                            </div>
+                            <a href="#" class="btn rey-light-btn mt-5">Schedule</a>
+                        </div>
+                    </div>
+                    <!-- END ITEM PRICE -->
+                </div>
+            </div>
+        </section>
+        <!-- END PRICE SECTION -->
+        <!-- CONTACT SECTION -->
+        <section id="contact-section" class=" pb-5 pt-5" style="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 pb-5 ">
+                        <div class="title-big text-left">
+                            <h2>CONVERSATION</h2>
+                            <h3>CONTACT</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 mb-5 pe-4">
+                        <div class="wrap-detailcontact">
+                            <p class="text-muted mb-5">Let's make something different and more meaningful, make more conceptual</p>
+                            <div class="detail-inner">
+                                <i class="bi bi-telephone-forward-fill"></i>
+                                <p class="text-muted">Phone Call Number</p>
+                                <p>+080989999</p>
+                            </div>
+                            <div class="detail-inner">
+                                <i class="bi bi-envelope-fill"></i>
+                                <p class="text-muted">Email address</p>
+                                <p>yourmail@yourdomain.com</p>
+                            </div>
+                            <div class="detail-inner">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <p class="text-muted">Hq address</p>
+                                <p>Unnamed Road 77152, jakarta Selatan Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="form-contact">
+                            <form action="#" id="formcontact">
+                                <div class="form-group row formwrap">
+                                    <div class="col-lg-6 pt-5">
+                                        <label for="yourname">Input your name</label>
+                                        <input type="text" class="mt-3" id="yourname" placeholder="Your name" name="name" required />
+                                    </div>
+                                    <div class="col-lg-6 pt-5">
+                                        <label for="yourmail">Input your mail</label>
+                                        <input type="email" class="mt-3" id="yourmail" placeholder="Your email address" name="email" required />
+                                    </div>
+                                    <div class="col-lg-12 pt-5">
+                                        <label for="comment">Input your message</label>
+                                        <textarea class="comentarea mt-3" id="comment" placeholder="Your comment" name="comment"></textarea>
+                                        <button class="submitbuton mt-5 mb-3" type="submit">Submit now</button>
+                                        <div class="loader pt-3"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END CONTACT SECTION -->
+    </main>
+    <!-- END MAIN WRAP -->
+    <!-- FOOTER SECTION -->
+    <footer id="footer-section" class="pt-5 pb-5">
+        <div class="container">
+            <div class="row  justify-content-center ">
+                <div class="col-lg-7 align-items-center">
+                    <div class="footer-logowrap text-center">
+                        <img src="asset/image/pageasset/logo.png" alt="logo" class="logo" />
+                        <p class="pt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident error mollitia ipsa, quae corrupti illum, sit molestiae rerum quibusdam commodi in.</p>
+                        <div class="sosmed-horizontal pt-3">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                        <p class="pt-3 mb-0">Reypotret 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER SECTION -->
+    <!-- jquery js -->
+    <script src="javascript/vendor/jquery.js"></script>
+    <!-- bootstrap js -->
+    <script src="javascript/vendor/bootstrap.min.js"></script>
+    <!-- typed js -->
+    <script src="javascript/vendor/typed.js"></script>
+    <!-- owlcarousel js -->
+    <script src="javascript/vendor/owlcarousel.js"></script>
+    <!-- shuflle js -->
+    <script src="javascript/vendor/shuffle.js"></script>
+    <!-- counter js -->
+    <script src="javascript/vendor/counter.js"></script>
+    <!-- ripple js -->
+    <script src="javascript/vendor/ripple.js"></script>
+    <!-- magnific js -->
+    <script src="javascript/vendor/magnific.js"></script>
+    <!-- main js -->
+    <script src="javascript/main.js"></script>
+</body>
+
+</html>
