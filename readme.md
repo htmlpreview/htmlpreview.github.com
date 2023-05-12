@@ -7,8 +7,11 @@ If you try to open raw version of any HTML, CSS or JS file in a web browser dire
 
 ## Usage
 
-In order to use it, just prepend this fragment to the URL of any HTML file: **[https://htmlpreview.github.io/?](https://htmlpreview.github.io/?)** e.g.:
-
+In order to use it, just prepend the below fragment to the URL of any HTML file. Copy and paste below: 
+```markdown
+https://htmlpreview.github.io/?
+```
+## For Example
  - https://htmlpreview.github.io/?https://github.com/twbs/bootstrap/gh-pages/2.3.2/index.html
  - https://htmlpreview.github.io/?https://github.com/documentcloud/backbone/blob/master/examples/todos/index.html
 
