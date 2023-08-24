@@ -22,7 +22,9 @@
 		for (i = 0; i < a.length; ++i) {
 			href = a[i].href; //Get absolute URL
 			if (href.indexOf('#') > 0) { //Check if it's an anchor
-				a[i].href = '//' + location.hostname + location.pathname + location.search + '#' + a[i].hash.substring(1); //Then rewrite URL with support for empty anchor
+				if ((a[i].protocol + '//' + a[i].hostname + a[i].pathname) == url) { //Rewrite links to this document only
+					a[i].href = '//' + location.hostname + location.pathname + location.search + '#' + a[i].hash.substring(1); //Then rewrite URL with support for empty anchor
+				} // Do not modify external URLs with fragment
 			} else if ((href.indexOf('//raw.githubusercontent.com') > 0 || href.indexOf('//bitbucket.org') > 0) && (href.indexOf('.html') > 0 || href.indexOf('.htm') > 0)) { //Check if it's from raw.github.com or bitbucket.org and to HTML files
 				a[i].href = '//' + location.hostname + location.pathname + '?' + href; //Then rewrite URL so it can be loaded using CORS proxy
 			}
