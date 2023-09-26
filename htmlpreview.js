@@ -26,6 +26,14 @@
 				frame[i].src = rewrite(src); //Then rewrite URL so it can be loaded using CORS proxy
 			}
 		}
+		//Objects
+		object = document.querySelectorAll('object[data]');
+		for (i = 0; i < object.length; ++i) {
+			src = object[i].data; //Get absolute URL
+			if (src.indexOf('//raw.githubusercontent.com') > 0 || src.indexOf('//bitbucket.org') > 0) { //Check if it's from raw.github.com or bitbucket.org
+				object[i].data = rewrite(src); //Then rewrite URL so it can be loaded using CORS proxy
+			}
+		}
 		//Links
 		a = document.querySelectorAll('a[href]');
 		for (i = 0; i < a.length; ++i) {
