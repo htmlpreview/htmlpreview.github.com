@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahadeva Guest House, Ujjain</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333;}
+    header { background:#1e40af; color:white; padding:20px; text-align:center; }
+    section { padding:20px; max-width:1000px; margin:auto; }
+    .gallery img { width:100%; max-width:300px; margin:10px; border-radius:10px; }
+    .rooms { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+    .room { background:white; padding:10px; border-radius:10px; text-align:center; width:200px; box-shadow:0 2px 5px rgba(0,0,0,0.2);}
+    footer { background:#111827; color:white; padding:20px; text-align:center; }
+    input, select, button { padding:10px; margin:5px 0; width:100%; border-radius:5px; border:1px solid #ccc; }
+    button { background:#1e40af; color:white; border:none; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mahadeva Guest House, Ujjain</h1>
+    <p>Comfortable stay near Mahakaleshwar Temple</p>
+  </header>
+
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <img src="https://source.unsplash.com/300x200/?hotel-room" alt="Room">
+    <img src="https://source.unsplash.com/300x200/?hotel-lobby" alt="Lobby">
+    <img src="https://source.unsplash.com/300x200/?temple" alt="Nearby">
+  </section>
+
+  <section>
+    <h2>About Us</h2>
+    <p>Mahadeva Guest House offers clean, affordable rooms with easy access to Ujjain’s famous Mahakaleshwar Temple.</p>
+  </section>
+
+  <section class="rooms">
+    <div class="room"><h3>Single AC Room</h3><p>₹1200/night</p><button>Book Now</button></div>
+    <div class="room"><h3>Double AC Room</h3><p>₹1800/night</p><button>Book Now</button></div>
+    <div class="room"><h3>Non-AC Room</h3><p>₹800/night</p><button>Book Now</button></div>
+  </section>
+
+  <section>
+    <h2>Booking Form</h2>
+    <form>
+      <input type="
