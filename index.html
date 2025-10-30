@@ -43,5 +43,16 @@
 		<p id="footer">Developed by <a href="https://github.com/niutech">niu tech</a> | Contribute on <a href="https://github.com/htmlpreview/htmlpreview.github.com">GitHub</a></p>
 	</form>
 	<script src="/htmlpreview.js"></script>
+	<form id="previewform" onsubmit="location.href='/?'+this.file.value;return false">
+		<h1>GitHub &amp; BitBucket HTML Preview</h1>
+		<p>
+			Enter URL of the HTML file to preview:
+			<input type="url" id="file" value="https://html-preview.github.io/?url=https://github.com/presence-chooser/upload/blob/main/mp6.html" placeholder="https://html-preview.github.io/?url=https://github.com/presence-chooser/upload/blob/main/mp6.html" size="60" autofocus>
+			<input type="submit" value="Preview">
+		</p>
+		<p>or prepend to the URL: <code><strong>http://htmlpreview.github.io/?</strong>https://github.com/twbs/bootstrap/blob/gh-pages/2.3.2/index.html</code></p>
+		<p id="footer">Developed by <a href="https://github.com/niutech">niu tech</a> | Contribute on <a href="https://github.com/htmlpreview/htmlpreview.github.com">GitHub</a></p>
+	</form>
+	<script src="/htmlpreview.js"></script>
 </body>
 </html>
