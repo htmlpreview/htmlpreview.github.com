@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto: Poluição dos Rios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e9f7f5;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #00897b;
+      color: white;
+      text-align: center;
+      padding: 1.5em 0;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #00695c;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #004d40;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Projeto: Conscientização sobre a Poluição dos Rios</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>🧩 Problema Escolhido</h2>
+      <p>A poluição dos rios é um dos maiores desafios ambientais da atualidade. O descarte incorreto de lixo e resíduos industriais contamina a água, prejudica a fauna e a flora aquática e afeta diretamente a saúde das pessoas.</p>
+    </section>
+
+    <section>
+      <h2>💡 Tipo de Projeto</h2>
+      <p>História interativa com uso de Inteligência Artificial.</p>
+    </section>
+
+    <section>
+      <h2>✏️ Descrição da Ideia</h2>
+      <p><strong>Objetivo:</strong> Conscientizar as pessoas sobre as causas e consequências da poluição dos rios e incentivar atitudes sustentáveis.</p>
+      <p><strong>Atores/Personagens:</strong></p>
+      <ul>
+        <li><strong>Usuário:</strong> pessoa que interage com o projeto.</li>
+        <li><strong>EcoBot:</strong> assistente virtual que apresenta informações sobre a poluição.</li>
+        <li><strong>Personagens:</strong> moradores, pescadores e animais do rio.</li>
+      </ul>
+      <p><strong>Dinâmica:</strong> O usuário participa de uma história interativa e toma decisões que afetam o nível de poluição do rio.</p>
+    </section>
+
+    <section>
+      <h2>📊 Fontes de Dados e Imagens</h2>
+      <ul>
+        <li>IBGE – dados sobre saneamento e poluição hídrica;</li>
+        <li>Agência Nacional de Águas (ANA);</li>
+        <li>Imagens gratuitas: <a href="https://unsplash.com" target="_blank">Unsplash</a> e <a href="https://pexels.com" target="_blank">Pexels</a>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🤖 Testes Iniciais com IA</h2>
+      <p><strong>Prompts usados:</strong></p>
+      <ul>
+        <li>“Crie uma história interativa para conscientizar sobre a poluição dos rios.”</li>
+        <li>“Simule um diálogo entre um robô ambiental e um usuário que quer aprender sobre reciclagem.”</li>
+      </ul>
+      <p><strong>Aprendizado:</strong> Descobri que a IA pode gerar respostas educativas e empáticas, ajudando o usuário a refletir sobre o impacto de suas ações.</p>
+    </section>
+
+    <section>
+      <h2>✅ Conclusão</h2>
+      <p>O projeto une tecnologia e educação ambiental para promover mudanças de comportamento, mostrando que pequenas atitudes podem fazer grande diferença na preservação dos rios e do meio ambiente.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por Pedro Heriqui 🌿</p>
+  </footer>
+</body>
+</html>
